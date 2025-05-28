@@ -131,7 +131,7 @@ schoption	db	"WCZXI"
 ;----- VWX API -----
 
 IFDEF REXP
-GDATA vwxapi	dd,	0
+GDATA vwxapi, dd,	0
 
 		public	check_vwx
 check_vwx	proc
@@ -1319,3 +1319,4 @@ isknj9:	pop	bx
 ; Copyright (C) 1989 by c.mos
 ;         VWX support by wing
 ;****************************
+

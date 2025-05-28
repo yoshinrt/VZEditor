@@ -41,7 +41,7 @@ _pblk		ends
 	extrn	cmdlinef	:byte
 	extrn	basemode	:byte
 	extrn	stopf		:byte
-	extrn	doslen		:byte
+	extrn	doslen_		:byte
 	extrn	dossw		:byte
 	extrn	flret		:byte
 
@@ -64,7 +64,7 @@ _pblk		ends
 	extrn	stopintnum	:word
 	extrn	stops		:word
 	extrn	syssw		:word
-	extrn	texts		:word
+;	extrn	texts		:word
 	extrn	tmpbuf		:word
 ;	extrn	tmpbuf2		:word
 	extrn	parbuf		:near	; ##156.96
@@ -90,7 +90,7 @@ _pblk		ends
 	extrn	xmem_close	:near
 	extrn	xmem_extend	:near
 	extrn	tmp_close	:near
-	extrn	ems_free	:near
+;	extrn	ems_free	:near
 	extrn	ems_resetmap	:near
 	extrn	ems_restore	:near
 	extrn	ems_save	:near
@@ -146,7 +146,7 @@ ENDIF
 
 	extrn	cs_stack	:near
 	extrn	windgets1	:near
-	extrn	dos_go		:near
+	extrn	dos_go_		:near
 
 ;--- Local work ---
 
@@ -701,7 +701,7 @@ dosgets	proc
 	tst	ax
 	jnz	dosget5
 IFNDEF NOFILER
-	tstb	doslen
+	tstb	doslen_
 	jmpln	z,doscr1
 	mov	al,flret
 	tst	al
@@ -791,12 +791,12 @@ ENDIF
 dosfl0:
 	tst	al
 	js	dosget_i1
-	tstb	doslen			; by DOSBOX
+	tstb	doslen_			; by DOSBOX
 _ifn z
 doscr1:
 	and	dossw,not DOS_GO
 	clr	cx
-	xchg	cx,word ptr doslen
+	xchg	cx,word ptr doslen_
 	jmps	dos_cr
 _endif
 	tst	al
@@ -1345,3 +1345,4 @@ ENDIF
 ;	End of 'dos.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

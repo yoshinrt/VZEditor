@@ -30,10 +30,7 @@ printf	proc
 	ret
 printf	endp
 
-	public	sprintf
-sprintf	proc
 	include	sprintf.inc
-sprintf	endp
 
 	endes
 

@@ -19,7 +19,7 @@
 	extrn	w_back		:word
 	endws
 
-	extrn	chkdosheight	:near
+;	extrn	chkdosheight	:near
 	extrn	chkline1	:near
 	extrn	clrbtm		:near
 	extrn	cls		:near
@@ -1426,3 +1426,4 @@ vscroll2 endp
 ;	End of 'core.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

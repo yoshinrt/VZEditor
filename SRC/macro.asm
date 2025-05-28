@@ -128,7 +128,7 @@ _mget		ends
 	extrn	scantbl		:near
 	extrn	dispmsg		:near
 	extrn	scan_flcmd	:near
-	extrn	flsyscall	:near
+;	extrn	flsyscall	:near
 	extrn	load_iniopt	:near
 	extrn	reset_histp	:near
 	extrn	open_ext	:near
@@ -450,7 +450,7 @@ schmdlmac:	mov	si,runmhp
 		jmps	schloc1
 schlocal 	proc
 		mov	si,[bx].mrootp
-		mov	dh,not LOCALMAC
+		mov	dh,(not LOCALMAC) and 0FFh
 		tst	dl
 		jns	schloc2
 schloc1:	mov	dh,0FFh
@@ -469,7 +469,7 @@ _until e
 		inc	si
 		inc	si
 		ret
-schloc3:	and	dl,not LOCALMAC
+schloc3:	and	dl,(not LOCALMAC) and 0FFh
 		jmp	schmacro
 schlocal	endp
 
@@ -1010,7 +1010,7 @@ addmacro endp
 ;<-- CY :return key code
 
 tb_macopjmp:
-	ofs	mac_menu
+	ofs	macro_menu
 	ofs	mac_cmd
 	ofs	mac_var
 	ofs	mac_call
@@ -1020,8 +1020,8 @@ tb_macopjmp:
 	ofs	mac_if
 	ofs	prmac_end
 	ofs	prmac_stop
-	ofs	mac_chr
-	ofs	mac_str
+	ofs	macro_chr
+	ofs	macro_str
 
 	public	premacro
 premacro proc
@@ -1104,17 +1104,17 @@ prmac22:
 	xlat	cs:tb_symbol
 	pop	bx
 	and	al,00001111b
-	jz	mac_num
+	jz	macro_num
 	cbw
 	dec	ax
 	shl	ax,1
 	mov	di,offset cgroup:tb_macopjmp
 	add	di,ax
 	jmp	cs:[di]
-mac_num:
+macro_num:
 	dec	si
 	jmp	mac_var
-mac_str:
+macro_str:
 	mov	dataf,TRUE
 	lodsb
 prmac_data:
@@ -1132,7 +1132,7 @@ prdata2:clr	al
 	mov	[bx].mgetp,si
 	stc
 	ret
-mac_chr:
+macro_chr:
 	call	scan_chr1
 	jmp	prdata2
 prmac_a:
@@ -1211,7 +1211,7 @@ prmac_err:
 
 ;--- Menu (!nn) ---
 
-mac_menu:
+macro_menu:
 	call	scandeciw
 	jc	prmac_err
 	call	set_mgetp
@@ -3034,3 +3034,4 @@ run_evmac	endp
 ;	End of 'macro.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

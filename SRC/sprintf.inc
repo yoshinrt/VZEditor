@@ -31,7 +31,8 @@ _printwk	ends
 ; $ld_strseg :load %s str seg to DS
 ;   usage :" %[-][0][n][,][l]{d|u|x|c|s} "
 
-$sprintf	proc
+	public	sprintf
+sprintf	proc
 		pushm	<bx,cx,dx,si,bp,ds,es>
 		sub	sp,type _printwk
 		mov	bp,sp
@@ -53,7 +54,7 @@ prnt8:
 		add	sp,type _printwk
 		popm	<es,ds,bp,si,dx,cx,bx>
 		ret
-$sprintf	endp
+sprintf	endp
 
 ;----- Analyze format -----
 
@@ -290,3 +291,4 @@ scandeci	endp
 ;------------------------------------------------
 ;	End of sprintf.inc
 ;------------------------------------------------
+

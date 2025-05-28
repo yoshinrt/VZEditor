@@ -73,7 +73,7 @@ fmnu	macro	label,mode
 	extrn	sortopt		:byte
 	extrn	tchdir		:byte
 	extrn	flmode		:byte
-	extrn	doslen		:byte
+	extrn	doslen_		:byte
 	extrn	dossw		:byte
 	extrn	flret		:byte
 
@@ -286,7 +286,7 @@ filer	proc
 	clr	ax
 	mov	execcmd,ax
 	mov	fllastcmd,ax
-	mov	doslen,al
+	mov	doslen_,al
 	mov	dossw,al
 	call	savewloc
 	call	getcurdir
@@ -359,9 +359,9 @@ filer6:
 	jc	gdos_c
 	mov	execcmd,ax
 	mov	si,xbuf
-	call	dos_go
+	call	dos_go_
   _if c
-	mov	doslen,cl
+	mov	doslen_,cl
   _else
 	test	flmode,FM_DOSBOX
     _ifn z
@@ -382,7 +382,7 @@ gdos_c:	popf
 	jmp	filer1
       _endif
 	or	dossw,DOS_TBOX
-	mov	doslen,cl
+	mov	doslen_,cl
     _endif
   _endif
 filer7:
@@ -1738,7 +1738,7 @@ do_cancel	proc
 _repeat
 		cmp	bx,[bp].fl_poolend
 	_break ae
-		and	[bx].dr_attr,not FA_SEL
+		and	[bx].dr_attr,(not FA_SEL) and 0FFh
 		add	bx,type _dir
 _until
 		clr	cx
@@ -1837,7 +1837,7 @@ docmp_sel:
 docmp7:	add	bx,type _dir
 	jmp	docmp3
 docmp_x:
-	and	[bx].dr_attr,not FA_SEL
+	and	[bx].dr_attr,(not FA_SEL) and 0FFh
 	jmps	docmp7
 
 do_compare endp
@@ -3035,7 +3035,7 @@ _endif
 	mov	es,[bp].fl_seg
 	push	cx
 	mov	di,bx
-	and	byte ptr [si],not FA_SEL	; ##156.104
+	and	byte ptr [si],(not FA_SEL) and 0FFh	; ##156.104
 	mov	cx,dta_pack-dta_attr
     rep	movsb
 	mov	cx,PACKSZ
@@ -3367,7 +3367,7 @@ npool2:
  _until
 	cmp	al,SYS_FILER
   _ifn e
-	and	[si].dr_attr,not FA_SEL
+	and	[si].dr_attr,(not FA_SEL) and 0FFh
 	dec	[bp].fl_selcnt
   _endif
 _endif
@@ -3935,8 +3935,8 @@ spexe_opt	endp
 ;--> SI:xbuf
 ;<-- CY: DOS_GO on (SI:buffer)
 
-		public	dos_go
-dos_go		proc
+		public	dos_go_
+dos_go_		proc
 		test	dossw,DOS_GO
 		jz	dosgo9
 		push	si
@@ -3954,7 +3954,7 @@ dos_go		proc
 		pop	si
 		stc
 dosgo9:		ret
-dos_go		endp
+dos_go_		endp
 
 	endes
 ENDIF
@@ -3964,3 +3964,4 @@ ENDIF
 ;	End of 'filer.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

@@ -19,7 +19,7 @@ KEY_SHIFT	equ	00000011b
 KEY_CTRL	equ	00000100b
 KEY_ALT		equ	00001000b
 
-@F		equ	10000000b
+_F		equ	10000000b
 S@F		equ	10100000b
 C@F		equ	11000000b
 A@F		equ	11100000b
@@ -100,8 +100,8 @@ tb_fkeyspc12	db	12,5,1,1,1,2,1,1,1,2,1,1,1,3
 tb_xkeycvt	db	@SFT+@TAB
 		db	"QWERTYUIOP[]",0,0,"AS"			; ##156.87
 		db	"DFGHJKL",0,0,"@",0,"\ZXCV"		; ##156.87
-		db	"BNM",0,0,0,0,0,0,0,0,@F+1,@F+2,@F+3,@F+4,@F+5
-		db	@F+6,@F+7,@F+8,@F+9,@F+10,0,0,@HOME
+		db	"BNM",0,0,0,0,0,0,0,0,_F+1,_F+2,_F+3,_F+4,_F+5
+		db	_F+6,_F+7,_F+8,_F+9,_F+10,0,0,@HOME
 		db	@UP,@PGUP,0,@LEFT,0,@RIGHT,0,@END
 		db	@DOWN,@PGDN,@INS,@DEL,S@F+1,S@F+2,S@F+3,S@F+4
 		db	S@F+5,S@F+6,S@F+7,S@F+8,S@F+9,S@F+10,C@F+1,C@F+2
@@ -111,9 +111,9 @@ tb_xkeycvt	db	@SFT+@TAB
 IFDEF JBM
 		db	@CTR+@PGDN,@CTR+@HOME,"1234567890-^",@CTR+@PGUP
 ELSE
-		db	@CTR+@PGDN,@CTR+@HOME,@F+1,@F+2,@F+3,@F+4,@F+5,@F+6
-		db	@F+7,@F+8,@F+9,@F+10
-		db	@F+11,@F+12,@CTR+@PGUP,@F+11,@F+12,S@F+11
+		db	@CTR+@PGDN,@CTR+@HOME,_F+1,_F+2,_F+3,_F+4,_F+5,_F+6
+		db	_F+7,_F+8,_F+9,_F+10
+		db	_F+11,_F+12,@CTR+@PGUP,_F+11,_F+12,S@F+11
 		db	S@F+12,C@F+11,C@F+12,A@F+11,A@F+12
 ;---------------------------- ##156.87
 		db	@CTR+@UP,0,0,0,@CTR+@DOWN,@CTR+@INS,@CTR+@DEL
@@ -771,14 +771,14 @@ cvtspec_func	proc
 _if z
 	test	ah,KEY_SHIFT
   _if z
-	mov	al,@F+11
+	mov	al,_F+11
   _endif
 _endif
 	cmp	al,S@F+2
 _if z
 	test	ah,KEY_SHIFT
   _if z
-	mov	al,@F+12
+	mov	al,_F+12
   _endif
 _endif
 	cmp	al,C@F+1
@@ -1248,3 +1248,4 @@ isDBCS endp
 ;	End of 'keyIBM.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

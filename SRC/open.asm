@@ -684,11 +684,11 @@ _if c
 	jmps	pars2
 _endif
 	cmp	al,':'
-	je	prs_drv
+	je	parse_drv
 	call	isslash
-	je	prs_dir
+	je	parse_dir
 	cmp	al,'.'
-	je	prs_ext
+	je	parse_ext
 	cmp	al,'+'			; ##1.5
 	je	pars5
 	cmp	al,','
@@ -703,12 +703,12 @@ _if z
 _endif
 	test	dl,PRS_ENDDIR
 	jz	pars1
-	and	dl,not PRS_ENDDIR
+	and	dl,(not PRS_ENDDIR) and 0FFh
 	mov	bx,di			; ##153.31
 	jmp	pars1
-prs_drv:or	dl,PRS_DRV+PRS_ENDDIR+PRS_ROOT
+parse_drv:or	dl,PRS_DRV+PRS_ENDDIR+PRS_ROOT
 	jmps	prsdir2
-prs_dir:
+parse_dir:
 	tst	dl
 _if z
 	or	dl,PRS_ROOT
@@ -716,7 +716,7 @@ _endif
 prsdir1:or	dl,PRS_DIR+PRS_ENDDIR
 prsdir2:and	dl,not (PRS_NAME+PRS_EXT)
 	jmp	pars1
-prs_ext:
+parse_ext:
 	cmp	byte ptr [si],'.'
 _if e
 	lodsb
@@ -2135,3 +2135,4 @@ endlogtbl	endp
 ;	End of 'open.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

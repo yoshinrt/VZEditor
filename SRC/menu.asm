@@ -822,7 +822,7 @@ msgpoolp endp
 click_var proc
 IFDEF NEWEXPR
 	mov	cx,ax
-	and	ch,not MENU_VAR
+	and	ch,(not MENU_VAR) and 0FFh
 ELSE
 	mov	cl,al
 	clr	ch
@@ -1018,7 +1018,7 @@ val_cmd:
 val_var:
 IFDEF NEWEXPR
 	mov	cx,ax
-	and	ch,not MENU_VAR
+	and	ch,(not MENU_VAR) and 0FFh
 ELSE
 	mov	cl,al
 	clr	ch
@@ -1412,3 +1412,4 @@ cntmdlmac	endp
 ;	End of 'menu.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

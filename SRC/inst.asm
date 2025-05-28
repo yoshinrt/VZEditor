@@ -18,13 +18,6 @@ PKEYCNT		equ	6
 ELSECNT		equ	13
 HISTCNT		equ	7
 
-DF_IF		equ	2
-DF_IFN		equ	3
-DF_ELSE		equ	4
-DF_ENDIF	equ	5
-DF_ELSEIF	equ	6
-DF_ELSEIFN	equ	7
-
 ;--- External symbols ---
 
 	wseg
@@ -1680,3 +1673,4 @@ _until e
 ;	End of 'inst.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

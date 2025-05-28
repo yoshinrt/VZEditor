@@ -7,7 +7,7 @@
 ;--- External symbols ---
 
 	wseg
-	extrn	altsize		:byte
+;	extrn	altsize		:byte
 	extrn	atrtbl		:byte
 	extrn	atrucsr		:byte
 	extrn	atrflag		:byte
@@ -48,7 +48,7 @@ ENDIF
 	extrn	optputs		:near
 	extrn	toupper		:near
 	extrn	resetfp		:near
-	extrn	sm_sensekey	:near
+;	extrn	sm_sensekey	:near
 
 	dseg
 
@@ -418,3 +418,4 @@ ENDIF
 ;	End of 'scrn.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

@@ -140,7 +140,7 @@ refp	macro	label
 	extrn	write_logtbl	:near
 	extrn	set_insm	:near
 	extrn	init_maclink	:near
-	extrn	init_module	:near
+;	extrn	init_module	:near
 	extrn	set_opnopt	:near
 	extrn	set_blktgt	:near
 	extrn	check_vwx	:near
@@ -201,7 +201,7 @@ GDATA cmdln,	label,	byte
 
 		org	100h
 entry:		jmps	entry1
-vzversion:	db	"VZ1.60 ",0,EOF
+vzversion	db	"VZ1.60 ",0,EOF
 entry1:		jmp	init
 		dw	0
 GDATA nm_vz,	db,	<'VZ',0,0,0,0,0,0,0>
@@ -350,7 +350,7 @@ GDATA doswapf,	db,	0		; do swap flag
 GDATA macmode,	db,	0		; macro mode (MAC_)
 GDATA breakf,	db,	-1		; break flag	;##155.83, ##156.129
 GDATA dossw,	db,	0		; dos command switch  ##16
-GDATA doslen,	dw,	0		; dos command box len ##16
+GDATA doslen_,	dw,	0		; dos command box len ##16
 GDATA tmppath,	db,	<TMPPATHSZ dup(?)> ; temporary path
 
 	endws
@@ -2101,3 +2101,4 @@ reset_histp	endp
 ;	End of 'main.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+

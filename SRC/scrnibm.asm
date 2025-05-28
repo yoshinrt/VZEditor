@@ -234,7 +234,7 @@ IFNDEF US
 	jae	kanj1
 ENDIF
 	cmp	al,'\'
-	je	backslash
+	je	backslash_
 normal:
 	cmp	cl,bl
 	jb	next1
@@ -246,7 +246,7 @@ next1:	inc	cl
 next2:	cmp	cl,ch
 	jb	dspt1
 	jmp	fldend
-backslash:
+backslash_:
 	bslash	normal
 
 ;--- CTRL ---
@@ -846,7 +846,7 @@ putvram	endp
 putspc:	mov	al,SPC
 IFNDEF J31
 gputc:
-  IFDEF 0 ; JBM
+  IFDEF COMMENT_OUT ; JBM
 	cmp	al,GRC_VR
 _if z
 	mov	al,' '
@@ -3346,3 +3346,4 @@ checkhard endp
 ;	End of 'scrnIBM.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
+
