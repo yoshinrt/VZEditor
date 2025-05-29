@@ -1248,4 +1248,3 @@ isDBCS endp
 ;	End of 'keyIBM.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

@@ -1426,4 +1426,3 @@ vscroll2 endp
 ;	End of 'core.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

@@ -320,4 +320,3 @@ dspsdn	endp
 ;	End of 'smooth.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

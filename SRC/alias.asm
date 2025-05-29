@@ -627,4 +627,3 @@ ENDIF
 ;	End of 'alias.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

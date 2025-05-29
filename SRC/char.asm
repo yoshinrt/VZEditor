@@ -458,4 +458,3 @@ strstr		endp
 ;	'char.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

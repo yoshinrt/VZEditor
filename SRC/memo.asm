@@ -1189,4 +1189,3 @@ freemem	endp
 ;	End of 'memo.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

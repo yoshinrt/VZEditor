@@ -3034,4 +3034,3 @@ run_evmac	endp
 ;	End of 'macro.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

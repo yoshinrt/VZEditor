@@ -741,4 +741,3 @@ wnd_reset	endp
 ;	End of 'wind.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

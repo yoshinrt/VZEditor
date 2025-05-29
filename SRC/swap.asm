@@ -511,4 +511,3 @@ memcopy endp
 ;	End of 'swap.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

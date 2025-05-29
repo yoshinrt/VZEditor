@@ -1352,4 +1352,3 @@ mg_help		db	"- Key -------- コマンドキー --------------",CR,LF
 ;	End of 'ezkey.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

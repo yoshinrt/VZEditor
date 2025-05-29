@@ -3346,4 +3346,3 @@ checkhard endp
 ;	End of 'scrnIBM.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

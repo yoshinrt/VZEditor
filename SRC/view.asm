@@ -1190,4 +1190,3 @@ viewpoint endp
 ;	End of 'view.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

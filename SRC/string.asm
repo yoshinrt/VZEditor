@@ -1319,4 +1319,3 @@ isknj9:	pop	bx
 ; Copyright (C) 1989 by c.mos
 ;         VWX support by wing
 ;****************************
-

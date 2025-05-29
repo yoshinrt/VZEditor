@@ -1104,4 +1104,3 @@ scan_lhexa	endp
 ; Copyright (C) 1989 by c.mos
 ;        New Pointer by T.Sakakibara
 ;****************************
-

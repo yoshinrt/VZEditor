@@ -292,4 +292,3 @@ se_textcomp endp
 ;	End of 'misc.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

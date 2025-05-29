@@ -2114,4 +2114,3 @@ close_ext	endp
 ;	End of 'text.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

@@ -1940,4 +1940,3 @@ checkhard endp
 ;	End of 'scrn98.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

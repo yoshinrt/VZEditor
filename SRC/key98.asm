@@ -954,4 +954,3 @@ isDBCS	endp
 ;	End of 'key98.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

@@ -119,4 +119,3 @@ mg_crlf		db	0Dh,0Ah,'$'
 ;	End of 'vzsel.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

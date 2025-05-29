@@ -993,4 +993,3 @@ ENDIF
 ;	End of 'key.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

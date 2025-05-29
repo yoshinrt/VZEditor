@@ -237,4 +237,3 @@ mg_title	db	"CHKTSR Version 1.00"
 ;	End of 'chktsr.asm'
 ; Copyright (C) 1990 by c.mos
 ;****************************
-

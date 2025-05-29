@@ -575,4 +575,3 @@ histcpy	endp
 ;	End of 'gets.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

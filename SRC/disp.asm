@@ -965,4 +965,3 @@ putmg	endp
 ;	End of 'disp.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

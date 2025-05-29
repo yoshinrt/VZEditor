@@ -1412,4 +1412,3 @@ cntmdlmac	endp
 ;	End of 'menu.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-

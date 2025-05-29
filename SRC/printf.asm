@@ -43,4 +43,3 @@ sprintf	endp
 ;	End of 'printf.asm'
 ; Copyright (C) 1989 by c.mos
 ;****************************
-
